@@ -206,7 +206,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Classes\person.cpp"
+				RelativePath=".\Classes\Person.cpp"
 				>
 			</File>
 			<File
@@ -231,7 +231,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Classes\person.h"
+				RelativePath=".\Classes\Person.h"
 				>
 			</File>
 			<File

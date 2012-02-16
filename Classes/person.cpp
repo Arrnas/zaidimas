@@ -1,31 +1,37 @@
 #include "Person.h"
-USING_NS_CC;
-Person::Person(string passName,
-	int passX,int passY,
-	int passHeight,int passWidth,
-	int passWinh,int passWinw,
-	HelloWorld * th,int layr,int chp,b2World *newWorld):name(passName),x(passX),y(passY),height(passHeight),
-	width(passWidth),that(th),layer(layr),hp(chp)
-{ 
-	obj = CCSprite::spriteWithFile(name.c_str(),CCRectMake(0, 0, height,width) );      
-    obj->setPosition( ccp(x,y) );
-	that->addChild(obj,layer);
+#include "HelloWorldScene.h"
 
-	_world = newWorld;
+#define PTM_RATIO 32.0
+USING_NS_CC;
+
+Person::Person(string fname,
+			   double x,double y,double height,double width,
+			   int hp,int layer,
+			   HelloWorld *that,
+			   b2World *_world):fname(fname),
+			   x(x),y(y),height(height),width(width),
+			   hp(hp),layer(layer),
+			   that(that),
+			   _world(_world)
+{
+	_ball = CCSprite::spriteWithFile(fname.c_str(),CCRectMake(0, 0, width,height));
+	_ball->setPosition(ccp(x,y));
+	that->addChild(_ball,layer);
+
 	// Create ball body and shape
 	b2BodyDef ballBodyDef;
 	ballBodyDef.type = b2_dynamicBody;
-	ballBodyDef.position.Set(x/PTM_RATIO, y/PTM_RATIO);
+	ballBodyDef.position.Set(x/PTM_RATIO,y/PTM_RATIO);
 	ballBodyDef.userData = this;
 	_body = _world->CreateBody(&ballBodyDef);
 	 
 	b2CircleShape circle;
-	circle.m_radius = 26.0/PTM_RATIO;
+	circle.m_radius = sqrt(width*width+height*height)/2.0/PTM_RATIO;//get the logest radius of a sprite
 	 
 	b2FixtureDef ballShapeDef;
 	ballShapeDef.shape = &circle;
 	ballShapeDef.density = 1.0f;
-	ballShapeDef.friction = 1.0f;
-	ballShapeDef.restitution = 0.1f;
+	ballShapeDef.friction = 0.2f;
+	ballShapeDef.restitution = 1.0f;
 	_body->CreateFixture(&ballShapeDef);
 }
