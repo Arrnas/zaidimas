@@ -6,7 +6,7 @@ class UserInterfaceLayer : public cocos2d::CCLayer
 {
     public:
     virtual bool init();
-
+	void changeup(int a){ a++; } 
     LAYER_NODE_FUNC(UserInterfaceLayer);
 }; 
 #endif // __USERINTERFACELAYER_H__

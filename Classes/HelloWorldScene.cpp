@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-
+#define PTM_RATIO 32.0
 USING_NS_CC;
 static CCPoint convertCoordinate(CCPoint point)
 {
@@ -15,7 +15,6 @@ CCScene* HelloWorld::scene()
 
 	// add layer as a child to scene
 	scene->addChild(layer);
-	
 	////////////////////////////////////
     //Create and add the user interface
     ////////////////////////////////////
@@ -35,8 +34,15 @@ bool HelloWorld::init()
 	{
 		return false;
 	}
-	shown1 = false;
+
+	/////////////////////////////
+	// enables multitouch
 	this->setIsTouchEnabled(true);
+
+	/////////////////////////////
+	// Creates a b2World
+	b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
+	myWorld = new b2World(gravity);
 	/////////////////////////////
 	// 2. add a menu item with "X" image, which is clicked to quit the program
 	//    you may modify it.
@@ -77,6 +83,8 @@ bool HelloWorld::init()
 
 	// add the sprite as a child to this layer
 	this->addChild(pSprite, 0);
+
+	this->schedule( schedule_selector(HelloWorld::tick));
 	
 	return true;
 }
@@ -129,4 +137,20 @@ void HelloWorld::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent )
         pt = touch->locationInView( touch->view() );
         it++;
 	}
+}
+
+void HelloWorld::tick(ccTime dt)
+{
+	myWorld->Step(1.0/60,8,1);
+	for(b2Body *b = myWorld->GetBodyList(); b; b=b->GetNext())
+	{    
+        if (b->GetUserData() != NULL)
+		{
+			CCSprite *ballData = (CCSprite*)b->GetUserData();//((Car *)b->GetUserData())->getSprite();
+			ballData->setPosition(ccp(b->GetPosition().x * PTM_RATIO,
+                                    b->GetPosition().y * PTM_RATIO));
+			ballData->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+        }        
+    }
+	
 }

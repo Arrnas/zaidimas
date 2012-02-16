@@ -1,5 +1,4 @@
 #include "UserInterfaceLayer.h" 
-
 USING_NS_CC;
 bool UserInterfaceLayer::init()
 {

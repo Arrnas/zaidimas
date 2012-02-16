@@ -206,6 +206,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Classes\person.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Classes\UserInterfaceLayer.cpp"
 				>
 			</File>
@@ -224,6 +228,10 @@
 			</File>
 			<File
 				RelativePath=".\win32\main.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Classes\person.h"
 				>
 			</File>
 			<File
