@@ -56,7 +56,15 @@ bool UserInterfaceLayer::init()
 
 	// add the label as a child to this layer
 	this->addChild(pLabel, 1);
+	
+	// add "HelloWorld" splash screen"
+	CCSprite* pSprite = CCSprite::spriteWithFile("TrigerNormal.png");
 
+	// position the sprite on the center of the screen
+	pSprite->setPosition( ccp(20, 20) );
+
+	// add the sprite as a child to this layer
+	this->addChild(pSprite, 1);
 
 
         bRet = true;
@@ -64,9 +72,26 @@ bool UserInterfaceLayer::init()
 
     return bRet;
 }
-void UserInterfaceLayer::changeup(int c)
+void UserInterfaceLayer::changeup(int c,int d)
 {				
-
+	string a;
+	stringstream b;
+	b << "pressed: " << c << "x: " << d;
+	a = b.str();
+	if(shown1)		
+	{
+		this->removeChild(pLabel1,1);
+		pLabel1 = CCLabelTTF::labelWithString(a.c_str(), "Arial", 34);
+		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2));
+		this->addChild(pLabel1,10);
+	}
+	else
+	{
+		pLabel1 = CCLabelTTF::labelWithString(a.c_str(), "Arial", 34);
+		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2));
+		this->addChild(pLabel1,10);
+		shown1 = true;
+	}
 } 
 void UserInterfaceLayer::menuCloseCallback(CCObject* pSender)
 {

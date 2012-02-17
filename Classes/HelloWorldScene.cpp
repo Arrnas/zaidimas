@@ -1,9 +1,19 @@
 #include "HelloWorldScene.h"
+
 #define PTM_RATIO 32.0
 USING_NS_CC;
+const CCPoint trigger(20,20);
+const double triggerRadius = 20;
+
 static CCPoint convertCoordinate(CCPoint point)
 {
     return CCDirector::sharedDirector()->convertToGL(point);
+}
+static bool isPointInCircle(CCPoint point, CCPoint center, float radius)
+{
+	float dx = (point.x - center.x);
+	float dy = (CCDirector::sharedDirector()->getWinSize().height - point.y - center.y);
+    return (radius >= sqrt((dx*dx)+(dy*dy)));
 }
 CCScene* HelloWorld::scene()
 {
@@ -38,7 +48,6 @@ bool HelloWorld::init()
 	/////////////////////////////
 	// enables multitouch
 	this->setIsTouchEnabled(true);
-	userInterfaceLayer->changeup(10);
 
 	
 	/////////////////////////////
@@ -67,7 +76,7 @@ bool HelloWorld::init()
 
 	zmogus = new Person("Target.png",100,100,36,24,20,1,this,myWorld);
 
-
+	finger = NULL;
 
 	/////////////////////////////
 	// 3. add your codes below...
@@ -108,9 +117,19 @@ void HelloWorld::ccTouchesBegan( CCSet *pTouches, CCEvent *pEvent )
         touch = (CCTouch*)(*it);
         pt = touch->locationInView( touch->view() );
         it++;
-		zmogus->move(pt);
-		zmogus->rotateTo(pt);
-		userInterfaceLayer->changeup(pt.x);
+		if(isPointInCircle(pt,trigger,triggerRadius))
+			finger = touch;
+		else
+		{
+			if(finger == NULL)
+				zmogus->move(pt);
+			else
+				zmogus->rotateTo(pt);
+		}
+		if(finger == NULL)
+			userInterfaceLayer->changeup(0,pt.x);
+		else
+			userInterfaceLayer->changeup(1,pt.x);
 	}
 }
 
@@ -125,6 +144,24 @@ void HelloWorld::ccTouchesMoved( CCSet *pTouches, CCEvent *pEvent )
         touch = (CCTouch*)(*it);
         pt = touch->locationInView( touch->view() );
         it++;
+		if(finger == NULL)
+		{
+			zmogus->move(pt);
+			zmogus->rotateTo(pt);
+		}
+		else
+		{
+			if(touch == finger)
+			{
+				if(!isPointInCircle(pt,trigger,triggerRadius))
+					finger = NULL;
+			}
+			else
+			{
+				zmogus->rotateTo(pt);
+			}
+		}
+
 	}
 }
 void HelloWorld::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent )
@@ -138,6 +175,8 @@ void HelloWorld::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent )
         touch = (CCTouch*)(*it);
         pt = touch->locationInView( touch->view() );
         it++;
+		if(touch == finger)
+			finger = NULL;
 	}
 }
 
@@ -148,7 +187,7 @@ void HelloWorld::tick(ccTime dt)
 	{    
         if (b->GetUserData() != NULL)
 		{
-			CCSprite *ballData = (CCSprite*)((Person *)b->GetUserData())->getSprite();//b->GetUserData();
+			CCSprite *ballData = (CCSprite*)((Person *)b->GetUserData())->getSprite();
 			ballData->setPosition(ccp(b->GetPosition().x * PTM_RATIO,b->GetPosition().y * PTM_RATIO));
 			ballData->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
         }        
