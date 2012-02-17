@@ -14,7 +14,7 @@ Person::Person(string fname,
 			   hp(hp),layer(layer),
 			   that(that),
 			   _world(_world),
-			   moveTo(x,y)
+			   moveTo(x,600-y)
 {
 	_ball = CCSprite::spriteWithFile(fname.c_str(),CCRectMake(0, 0, width,height));
 	_ball->setPosition(ccp(x,y));

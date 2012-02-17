@@ -5,11 +5,10 @@
 #include "userInterfaceLayer.h"
 #include "Box2D/Box2D.h"
 #include "Person.h"
-
 USING_NS_CC;
 class HelloWorld : public cocos2d::CCLayer
 {
-
+	UserInterfaceLayer *userInterfaceLayer;
 	b2World *myWorld;
 	b2Body *_body;
 	CCSprite *_ball;

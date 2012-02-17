@@ -158,6 +158,7 @@ obj/local/armeabi/objs-debug/game_logic/UserInterfaceLayer.o: \
  jni/../../Classes/../../cocos2dx/platform/CCAccelerometer_platform.h \
  jni/../../Classes/../../cocos2dx/platform/android/CCAccelerometer_android.h \
  jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream \
  jni/../../Classes/HelloWorldScene.h \
  jni/../../Classes/userInterfaceLayer.h \
  jni/../../Classes/../../Box2D/Box2D.h \
@@ -204,8 +205,7 @@ obj/local/armeabi/objs-debug/game_logic/UserInterfaceLayer.o: \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2RevoluteJoint.h \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h \
- jni/../../Classes/Person.h \
- /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream
+ jni/../../Classes/Person.h
 
 jni/../../Classes/UserInterfaceLayer.h:
 
@@ -523,6 +523,8 @@ jni/../../Classes/../../cocos2dx/platform/android/CCAccelerometer_android.h:
 
 jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h:
 
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream:
+
 jni/../../Classes/HelloWorldScene.h:
 
 jni/../../Classes/userInterfaceLayer.h:
@@ -616,5 +618,3 @@ jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h:
 jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h:
 
 jni/../../Classes/Person.h:
-
-/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream:
