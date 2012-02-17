@@ -14,5 +14,6 @@ class UserInterfaceLayer : public cocos2d::CCLayer
 	void changeup(int c);
     LAYER_NODE_FUNC(UserInterfaceLayer);
 	void menuCloseCallback(CCObject* pSender);
+	void menuPauseCallback(CCObject* pSender);
 }; 
 #endif // __USERINTERFACELAYER_H__

@@ -8,6 +8,8 @@ bool UserInterfaceLayer::init()
     {   // super init first        
         CC_BREAK_IF(! CCLayer::init());    
 
+	// ask director the window size
+	CCSize size = CCDirector::sharedDirector()->getWinSize();
     //todo, init stuff here
 	/////////////////////////////
 	// 2. add a menu item with "X" image, which is clicked to quit the program
@@ -19,18 +21,35 @@ bool UserInterfaceLayer::init()
 										"CloseSelected.png",
 										this,
 										menu_selector(UserInterfaceLayer::menuCloseCallback));
-	pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width-20,CCDirector::sharedDirector()->getWinSize().height-20) );
+	pCloseItem->setPosition( ccp(size.width-20,size.height-20) );
 
 	// create menu, it's an autorelease object
 	CCMenu* pMenu = CCMenu::menuWithItems(pCloseItem, NULL);
 	pMenu->setPosition( CCPointZero );
 	this->addChild(pMenu, 1);
+	/////////////////////////////
+	// 3. add a menu item with "||" image, which is clicked to pause the program
+	//    you may modify it.
+
+	// add a "pause" icon to exit the progress. it's an autorelease object
+	CCMenuItemImage *pPauseItem = CCMenuItemImage::itemFromNormalImage(
+										"PauseNormal.png",
+										"PauseSelected.png",
+										this,
+										menu_selector(UserInterfaceLayer::menuPauseCallback));
+	pPauseItem->setPosition( ccp(20,size.height-20) );
+
+	// create menu, it's an autorelease object
+	CCMenu* pMenu1 = CCMenu::menuWithItems(pPauseItem, NULL);
+	pMenu1->setPosition( CCPointZero );
+	this->addChild(pMenu1, 1);
+
+
 
 	// add a label shows "Hello World"
 	// create and initialize a label
     CCLabelTTF* pLabel = CCLabelTTF::labelWithString("Goodbye world", "Arial", 24);
-	// ask director the window size
-	CCSize size = CCDirector::sharedDirector()->getWinSize();
+
 
 	// position the label on the center of the screen
 	pLabel->setPosition( ccp(size.width / 2, size.height - 50) );
@@ -56,4 +75,11 @@ void UserInterfaceLayer::menuCloseCallback(CCObject* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);
 #endif
+}
+void UserInterfaceLayer::menuPauseCallback(CCObject* pSender)
+{
+	if(CCDirector::sharedDirector()->isPaused())
+		CCDirector::sharedDirector()->resume();
+	else
+		CCDirector::sharedDirector()->pause();
 }
