@@ -9,6 +9,7 @@
 USING_NS_CC;
 class HelloWorld : public cocos2d::CCLayer
 {
+
 	b2World *myWorld;
 	b2Body *_body;
 	CCSprite *_ball;

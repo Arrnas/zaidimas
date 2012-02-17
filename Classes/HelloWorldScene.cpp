@@ -44,16 +44,8 @@ bool HelloWorld::init()
 	
 	/////////////////////////////
 	// Creates a b2World
-	b2Vec2 gravity = b2Vec2(0.0f, -30.0f);
+	b2Vec2 gravity = b2Vec2(0.0f, 0.0f);
 	myWorld = new b2World(gravity);
-
-	//_ball = CCSprite::spriteWithFile("Target.png",CCRectMake(0, 0, 52,52));
-
-	//// position the sprite on the center of the screen
-	//_ball->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width/2, CCDirector::sharedDirector()->getWinSize().height/2) );
-
-	//// add the sprite as a child to this layer
-	//this->addChild(_ball, 1);
 
 	// Create edges around the entire screen
 	b2BodyDef groundBodyDef;
@@ -67,31 +59,14 @@ bool HelloWorld::init()
 	groundBox.Set(b2Vec2(0,0), b2Vec2(0, CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO));
 	groundBody->CreateFixture(&boxShapeDef);
 	groundBox.Set(b2Vec2(0, CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO), 
-		b2Vec2(CCDirector::sharedDirector()->getWinSize().width/PTM_RATIO, CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO));
+	b2Vec2(CCDirector::sharedDirector()->getWinSize().width/PTM_RATIO, CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO));
 	groundBody->CreateFixture(&boxShapeDef);
 	groundBox.Set(b2Vec2(CCDirector::sharedDirector()->getWinSize().width/PTM_RATIO, 
-		CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO), b2Vec2(CCDirector::sharedDirector()->getWinSize().width/PTM_RATIO, 0));
+	CCDirector::sharedDirector()->getWinSize().height/PTM_RATIO), b2Vec2(CCDirector::sharedDirector()->getWinSize().width/PTM_RATIO, 0));
 	groundBody->CreateFixture(&boxShapeDef);
-	// 
-	//// Create ball body and shape
-	//b2BodyDef ballBodyDef;
-	//ballBodyDef.type = b2_dynamicBody;
-	//ballBodyDef.position.Set(CCDirector::sharedDirector()->getWinSize().width/2/PTM_RATIO, CCDirector::sharedDirector()->getWinSize().height/2/PTM_RATIO);
-	//ballBodyDef.userData = _ball;
-	//_body = myWorld->CreateBody(&ballBodyDef);
-	// 
-	//b2CircleShape circle;
-	//circle.m_radius = sqrt(52.0*52.0*2.0)/2.0/PTM_RATIO;
-	// 
-	//b2FixtureDef ballShapeDef;
-	//ballShapeDef.shape = &circle;
-	//ballShapeDef.density = 1.0f;
-	//ballShapeDef.friction = 0.2f;
-	//ballShapeDef.restitution = 0.0f;
-	//_body->CreateFixture(&ballShapeDef);
 	 
 
-	zmogus = new Person("Target.png",CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2,36,24,20,1,this,myWorld);
+	zmogus = new Person("Target.png",100,100,36,24,20,1,this,myWorld);
 
 
 
@@ -161,6 +136,8 @@ void HelloWorld::ccTouchesBegan( CCSet *pTouches, CCEvent *pEvent )
         touch = (CCTouch*)(*it);
         pt = touch->locationInView( touch->view() );
         it++;
+		zmogus->move(pt);
+		zmogus->rotateTo(pt);
 	}
 }
 
@@ -203,5 +180,5 @@ void HelloWorld::tick(ccTime dt)
 			ballData->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
         }        
     }
-	
+	zmogus->movement();
 }
