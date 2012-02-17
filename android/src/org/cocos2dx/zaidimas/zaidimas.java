@@ -56,6 +56,7 @@ public class zaidimas extends Cocos2dxActivity{
 	 }
 	
      static {
+    	 System.loadLibrary("box2d");
     	 System.loadLibrary("cocos2d");
     	 System.loadLibrary("cocosdenshion");
     	 System.loadLibrary("game_logic");

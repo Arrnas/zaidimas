@@ -160,6 +160,51 @@ obj/local/armeabi/objs-debug/game_logic/UserInterfaceLayer.o: \
  jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h \
  jni/../../Classes/HelloWorldScene.h \
  jni/../../Classes/userInterfaceLayer.h \
+ jni/../../Classes/../../Box2D/Box2D.h \
+ jni/../../Classes/../../Box2D/Common/b2Settings.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cassert \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cmath \
+ jni/../../Classes/../../Box2D/Common/b2Draw.h \
+ jni/../../Classes/../../Box2D/Common/b2Math.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cfloat \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/limits \
+ jni/../../Classes/../../Box2D/Common/b2Timer.h \
+ jni/../../Classes/../../Box2D/Collision/Shapes/b2CircleShape.h \
+ jni/../../Classes/../../Box2D/Collision/Shapes/b2Shape.h \
+ jni/../../Classes/../../Box2D/Common/b2BlockAllocator.h \
+ jni/../../Classes/../../Box2D/Collision/b2Collision.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/climits \
+ jni/../../Classes/../../Box2D/Collision/Shapes/b2EdgeShape.h \
+ jni/../../Classes/../../Box2D/Collision/Shapes/b2ChainShape.h \
+ jni/../../Classes/../../Box2D/Collision/Shapes/b2PolygonShape.h \
+ jni/../../Classes/../../Box2D/Collision/b2BroadPhase.h \
+ jni/../../Classes/../../Box2D/Collision/b2DynamicTree.h \
+ jni/../../Classes/../../Box2D/Common/b2GrowableStack.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cstring \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/algorithm \
+ jni/../../Classes/../../Box2D/Collision/b2Distance.h \
+ jni/../../Classes/../../Box2D/Collision/b2TimeOfImpact.h \
+ jni/../../Classes/../../Box2D/Dynamics/b2Body.h \
+ /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/memory \
+ jni/../../Classes/../../Box2D/Dynamics/b2Fixture.h \
+ jni/../../Classes/../../Box2D/Dynamics/b2WorldCallbacks.h \
+ jni/../../Classes/../../Box2D/Dynamics/b2TimeStep.h \
+ jni/../../Classes/../../Box2D/Dynamics/b2World.h \
+ jni/../../Classes/../../Box2D/Common/b2StackAllocator.h \
+ jni/../../Classes/../../Box2D/Dynamics/b2ContactManager.h \
+ jni/../../Classes/../../Box2D/Dynamics/Contacts/b2Contact.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2DistanceJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2Joint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2FrictionJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2GearJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2WheelJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2MouseJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2PrismaticJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2PulleyJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2RevoluteJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h \
+ jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h \
+ jni/../../Classes/Person.h \
  /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream
 
 jni/../../Classes/UserInterfaceLayer.h:
@@ -481,5 +526,95 @@ jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h:
 jni/../../Classes/HelloWorldScene.h:
 
 jni/../../Classes/userInterfaceLayer.h:
+
+jni/../../Classes/../../Box2D/Box2D.h:
+
+jni/../../Classes/../../Box2D/Common/b2Settings.h:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cassert:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cmath:
+
+jni/../../Classes/../../Box2D/Common/b2Draw.h:
+
+jni/../../Classes/../../Box2D/Common/b2Math.h:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cfloat:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/limits:
+
+jni/../../Classes/../../Box2D/Common/b2Timer.h:
+
+jni/../../Classes/../../Box2D/Collision/Shapes/b2CircleShape.h:
+
+jni/../../Classes/../../Box2D/Collision/Shapes/b2Shape.h:
+
+jni/../../Classes/../../Box2D/Common/b2BlockAllocator.h:
+
+jni/../../Classes/../../Box2D/Collision/b2Collision.h:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/climits:
+
+jni/../../Classes/../../Box2D/Collision/Shapes/b2EdgeShape.h:
+
+jni/../../Classes/../../Box2D/Collision/Shapes/b2ChainShape.h:
+
+jni/../../Classes/../../Box2D/Collision/Shapes/b2PolygonShape.h:
+
+jni/../../Classes/../../Box2D/Collision/b2BroadPhase.h:
+
+jni/../../Classes/../../Box2D/Collision/b2DynamicTree.h:
+
+jni/../../Classes/../../Box2D/Common/b2GrowableStack.h:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/cstring:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/algorithm:
+
+jni/../../Classes/../../Box2D/Collision/b2Distance.h:
+
+jni/../../Classes/../../Box2D/Collision/b2TimeOfImpact.h:
+
+jni/../../Classes/../../Box2D/Dynamics/b2Body.h:
+
+/cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/memory:
+
+jni/../../Classes/../../Box2D/Dynamics/b2Fixture.h:
+
+jni/../../Classes/../../Box2D/Dynamics/b2WorldCallbacks.h:
+
+jni/../../Classes/../../Box2D/Dynamics/b2TimeStep.h:
+
+jni/../../Classes/../../Box2D/Dynamics/b2World.h:
+
+jni/../../Classes/../../Box2D/Common/b2StackAllocator.h:
+
+jni/../../Classes/../../Box2D/Dynamics/b2ContactManager.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Contacts/b2Contact.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2DistanceJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2Joint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2FrictionJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2GearJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2WheelJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2MouseJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2PrismaticJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2PulleyJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2RevoluteJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h:
+
+jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h:
+
+jni/../../Classes/Person.h:
 
 /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream:
