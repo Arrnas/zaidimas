@@ -168,7 +168,7 @@ obj/local/armeabi/objs-debug/game_logic/Person.o: \
  jni/../../Classes/../../cocos2dx/platform/CCAccelerometer_platform.h \
  jni/../../Classes/../../cocos2dx/platform/android/CCAccelerometer_android.h \
  jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h \
- jni/../../Classes/HelloWorldScene.h \
+ jni/../../Classes/bullet.h jni/../../Classes/HelloWorldScene.h \
  jni/../../Classes/userInterfaceLayer.h \
  /cygdrive/c/android-ndk-r7/sources/cxx-stl/gnu-libstdc++/include/sstream
 
@@ -509,6 +509,8 @@ jni/../../Classes/../../cocos2dx/platform/CCAccelerometer_platform.h:
 jni/../../Classes/../../cocos2dx/platform/android/CCAccelerometer_android.h:
 
 jni/../../Classes/../../cocos2dx/include/CCAccelerometerDelegate.h:
+
+jni/../../Classes/bullet.h:
 
 jni/../../Classes/HelloWorldScene.h:
 

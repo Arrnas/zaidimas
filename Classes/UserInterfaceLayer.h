@@ -11,7 +11,7 @@ class UserInterfaceLayer : public cocos2d::CCLayer
 	CCLabelTTF *pLabel1;
     public:
     virtual bool init();
-	void changeup(int c,int d);
+	void changeup(int c);
     LAYER_NODE_FUNC(UserInterfaceLayer);
 	void menuCloseCallback(CCObject* pSender);
 	void menuPauseCallback(CCObject* pSender);

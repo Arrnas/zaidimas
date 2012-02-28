@@ -5,8 +5,9 @@ LOCAL_MODULE := game_logic
 LOCAL_SRC_FILES := AppDelegate.cpp \
                    HelloWorldScene.cpp \
                    UserInterfaceLayer.cpp \
-                   Person.cpp
-
+                   Person.cpp \
+                   bullet.cpp
+                   
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../cocos2dx \
 					$(LOCAL_PATH)/../../ \
                     $(LOCAL_PATH)/../../cocos2dx/platform \

@@ -204,7 +204,7 @@ obj/local/armeabi/objs-debug/game_logic/AppDelegate.o: \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2RevoluteJoint.h \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h \
  jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h \
- jni/../../Classes/Person.h
+ jni/../../Classes/Person.h jni/../../Classes/bullet.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -617,3 +617,5 @@ jni/../../Classes/../../Box2D/Dynamics/Joints/b2RopeJoint.h:
 jni/../../Classes/../../Box2D/Dynamics/Joints/b2WeldJoint.h:
 
 jni/../../Classes/Person.h:
+
+jni/../../Classes/bullet.h:

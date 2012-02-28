@@ -6,14 +6,18 @@
 #include "Box2D/Box2D.h"
 #include "Person.h"
 USING_NS_CC;
-class HelloWorld : public cocos2d::CCLayer
+class HelloWorld : public cocos2d::CCLayer,public b2ContactListener
 {
 	UserInterfaceLayer *userInterfaceLayer;
 	b2World *myWorld;
 	b2Body *_body;
 	CCSprite *_ball;
-	Person *zmogus;
+	Person *zmogus,*enemy;
 	CCTouch* finger;
+	b2Body *destroyBullet;
+	b2Body *hitBody;
+	b2Vec2 hitPos;
+	int score;
 public:
 	// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
 	virtual bool init();  
@@ -31,6 +35,10 @@ public:
 	void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
 
 	void tick(cocos2d::ccTime dt);
+	void tock(cocos2d::ccTime dt);
+	void BeginContact(b2Contact* contact);
+	void deleteSprite(CCNode* sender);
+	~HelloWorld(){	CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames(); }
 };
 
 #endif // __HELLOWORLD_SCENE_H__

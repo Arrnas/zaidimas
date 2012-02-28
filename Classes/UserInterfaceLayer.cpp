@@ -65,30 +65,28 @@ bool UserInterfaceLayer::init()
 
 	// add the sprite as a child to this layer
 	this->addChild(pSprite, 1);
-
-
         bRet = true;
     } while (0);
 
     return bRet;
 }
-void UserInterfaceLayer::changeup(int c,int d)
+void UserInterfaceLayer::changeup(int c)
 {				
 	string a;
 	stringstream b;
-	b << "pressed: " << c << "x: " << d;
+	b << "score: " << c;
 	a = b.str();
 	if(shown1)		
 	{
 		this->removeChild(pLabel1,1);
 		pLabel1 = CCLabelTTF::labelWithString(a.c_str(), "Arial", 34);
-		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2));
+		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-100,CCDirector::sharedDirector()->getWinSize().height-20));
 		this->addChild(pLabel1,10);
 	}
 	else
 	{
 		pLabel1 = CCLabelTTF::labelWithString(a.c_str(), "Arial", 34);
-		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width/2,CCDirector::sharedDirector()->getWinSize().height/2));
+		pLabel1->setPosition(ccp(CCDirector::sharedDirector()->getWinSize().width-100,CCDirector::sharedDirector()->getWinSize().height-20));
 		this->addChild(pLabel1,10);
 		shown1 = true;
 	}

@@ -198,6 +198,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Classes\bullet.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Classes\HelloWorldScene.cpp"
 				>
 			</File>
@@ -220,6 +224,10 @@
 			>
 			<File
 				RelativePath=".\Classes\AppDelegate.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Classes\bullet.h"
 				>
 			</File>
 			<File
